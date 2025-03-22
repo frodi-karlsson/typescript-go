@@ -9042,6 +9042,41 @@ func (c *Checker) tryGetRestTypeOfSignature(signature *Signature) *Type {
 	return c.getIndexTypeOfType(restType, c.numberType)
 }
 
+func (c *Checker) addImplementationSuccessElaboration(s *CallState, failed *Signature, diagnostic *ast.Diagnostic) {
+	oldCandidatesForArgumentError := s.candidatesForArgumentError
+	oldCandidateForArgumentArityError := s.candidateForArgumentArityError
+	oldCandidateForTypeArgumentError := s.candidateForTypeArgumentError
+	oldIsSingleNonGenericCandidate := s.isSingleNonGenericCandidate
+	oldCandidates := s.candidates
+
+	var failedSignatureDeclarations []*ast.Declaration
+	if failed.declaration != nil {
+		symbol := failed.declaration.Symbol()
+		if symbol != nil {
+			failedSignatureDeclarations = symbol.Declarations
+		}
+	}
+	isOverload := len(failedSignatureDeclarations) > 1
+	var implDecl *ast.Declaration
+	if isOverload {
+		implDecl = core.Find(failedSignatureDeclarations, func(d *ast.Declaration) bool { return ast.IsFunctionLikeDeclaration(d) && ast.NodeIsPresent(d.Body()) })
+	}
+	if implDecl != nil {
+		candidate := c.getSignatureFromDeclaration(implDecl)
+		s.isSingleNonGenericCandidate = candidate.typeParameters == nil
+		s.candidates = []*Signature{candidate}
+		if c.chooseOverload(s, c.assignableRelation) != nil {
+			diagnostic.AddRelatedInfo(createDiagnosticForNode(implDecl, diagnostics.The_call_would_have_succeeded_against_this_implementation_but_implementation_signatures_of_overloads_are_not_externally_visible))
+		}
+	}
+
+	s.candidatesForArgumentError = oldCandidatesForArgumentError
+	s.candidateForArgumentArityError = oldCandidateForArgumentArityError
+	s.candidateForTypeArgumentError = oldCandidateForTypeArgumentError
+	s.isSingleNonGenericCandidate = oldIsSingleNonGenericCandidate
+	s.candidates = oldCandidates
+}
+
 func (c *Checker) reportCallResolutionErrors(s *CallState, signatures []*Signature, headMessage *diagnostics.Message) {
 	switch {
 	case len(s.candidatesForArgumentError) != 0:
@@ -9059,7 +9094,7 @@ func (c *Checker) reportCallResolutionErrors(s *CallState, signatures []*Signatu
 			if last.declaration != nil && len(s.candidatesForArgumentError) > 1 {
 				diagnostic.AddRelatedInfo(NewDiagnosticForNode(last.declaration, diagnostics.The_last_overload_is_declared_here))
 			}
-			// !!! addImplementationSuccessElaboration(last, d)
+			c.addImplementationSuccessElaboration(s, last, diagnostic)
 			c.diagnostics.Add(diagnostic)
 		}
 	case s.candidateForArgumentArityError != nil:
