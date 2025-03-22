@@ -48,7 +48,6 @@ overloadResolutionConstructors.ts(100,26): error TS2339: Property 'toFixed' does
 !!! error TS2769: No overload matches this call.
 !!! error TS2769:   The last overload gave the following error.
 !!! error TS2769:     Argument of type '{}' is not assignable to parameter of type 'number'.
-!!! related TS2771 overloadResolutionConstructors.ts:18:5: The last overload is declared here.
     
     // Generic and non - generic overload where generic overload is the only candidate when called with type arguments
     interface fn2 {
@@ -127,13 +126,11 @@ overloadResolutionConstructors.ts(100,26): error TS2339: Property 'toFixed' does
 !!! error TS2769: No overload matches this call.
 !!! error TS2769:   The last overload gave the following error.
 !!! error TS2769:     Argument of type 'boolean' is not assignable to parameter of type 'number'.
-!!! related TS2771 overloadResolutionConstructors.ts:72:5: The last overload is declared here.
     new fn4(null, true); // Error
                   ~~~~
 !!! error TS2769: No overload matches this call.
 !!! error TS2769:   The last overload gave the following error.
 !!! error TS2769:     Argument of type 'boolean' is not assignable to parameter of type 'string'.
-!!! related TS2771 overloadResolutionConstructors.ts:72:5: The last overload is declared here.
     
     // Non - generic overloads where contextual typing of function arguments has errors
     interface fn5 {

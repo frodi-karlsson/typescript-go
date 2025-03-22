@@ -48,7 +48,6 @@ overloadResolutionClassConstructors.ts(98,18): error TS2339: Property 'blah' doe
 !!! error TS2769: No overload matches this call.
 !!! error TS2769:   The last overload gave the following error.
 !!! error TS2769:     Argument of type '{}' is not assignable to parameter of type 'number'.
-!!! related TS2771 overloadResolutionClassConstructors.ts:20:5: The last overload is declared here.
     
     // Generic and non - generic overload where generic overload is the only candidate when called with type arguments
     class fn2<T> {

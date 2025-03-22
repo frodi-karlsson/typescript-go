@@ -9091,7 +9091,7 @@ func (c *Checker) reportCallResolutionErrors(s *CallState, signatures []*Signatu
 			if headMessage != nil {
 				diagnostic = ast.NewDiagnosticChain(diagnostic, headMessage)
 			}
-			if last.declaration != nil && len(s.candidatesForArgumentError) > 1 {
+			if last.declaration != nil && len(s.candidatesForArgumentError) > 3 {
 				diagnostic.AddRelatedInfo(NewDiagnosticForNode(last.declaration, diagnostics.The_last_overload_is_declared_here))
 			}
 			c.addImplementationSuccessElaboration(s, last, diagnostic)

@@ -18,7 +18,5 @@
 -!!! error TS2769:   Overload 2 of 2, '(cb: Function, opts?: Whatever): void', gave the following error.
 +!!! error TS2769:   The last overload gave the following error.
  !!! error TS2769:     Argument of type 'number' is not assignable to parameter of type 'Function'.
-+!!! related TS2771 file.d.ts:8:18: The last overload is declared here.
  ==== file.d.ts (0 errors) ====
      declare namespace Foo {
-         interface Whatever {

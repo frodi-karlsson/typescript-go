@@ -53,7 +53,6 @@ unionTypeCallSignatures.ts(73,12): error TS2554: Expected 2 arguments, but got 1
 !!! error TS2769: No overload matches this call.
 !!! error TS2769:   The last overload gave the following error.
 !!! error TS2769:     Argument of type 'boolean' is not assignable to parameter of type 'string'.
-!!! related TS2771 unionTypeCallSignatures.ts:12:57: The last overload is declared here.
     
     var unionOfDifferentReturnType1: { (a: number): number; (a: string): string; } | { (a: number): Date; (a: string): boolean; };
     numOrDate = unionOfDifferentReturnType1(10);
@@ -63,7 +62,6 @@ unionTypeCallSignatures.ts(73,12): error TS2554: Expected 2 arguments, but got 1
 !!! error TS2769: No overload matches this call.
 !!! error TS2769:   The last overload gave the following error.
 !!! error TS2769:     Argument of type 'boolean' is not assignable to parameter of type 'string'.
-!!! related TS2771 unionTypeCallSignatures.ts:12:57: The last overload is declared here.
     unionOfDifferentReturnType1(); // error missing parameter
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 !!! error TS2554: Expected 1 arguments, but got 0.

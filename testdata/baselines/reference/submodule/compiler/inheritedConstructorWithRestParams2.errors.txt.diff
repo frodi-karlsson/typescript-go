@@ -30,7 +30,6 @@
 -!!! error TS2769:   Overload 2 of 3, '(x1: string, x2: string, ...y: number[]): Derived', gave the following error.
 +!!! error TS2769:   The last overload gave the following error.
  !!! error TS2769:     Argument of type 'number' is not assignable to parameter of type 'string'.
-+!!! related TS2771 inheritedConstructorWithRestParams2.ts:13:5: The last overload is declared here.
      new Derived("", 3, "", "");
 -        ~~~~~~~
 +                    ~
@@ -40,4 +39,3 @@
 -!!! error TS2769:   Overload 2 of 3, '(x1: string, x2: string, ...y: number[]): Derived', gave the following error.
 +!!! error TS2769:   The last overload gave the following error.
  !!! error TS2769:     Argument of type 'number' is not assignable to parameter of type 'string'.
-+!!! related TS2771 inheritedConstructorWithRestParams2.ts:13:5: The last overload is declared here.

@@ -91,5 +91,4 @@ recursiveFunctionTypes.ts(43,4): error TS2769: No overload matches this call.
 !!! error TS2769: No overload matches this call.
 !!! error TS2769:   The last overload gave the following error.
 !!! error TS2769:     Argument of type 'string' is not assignable to parameter of type '{ (): ???; (a: ???): () => number; (a: number): number; (a?: ???): ???; }'.
-!!! related TS2771 recursiveFunctionTypes.ts:40:18: The last overload is declared here.
     f7(); // ok

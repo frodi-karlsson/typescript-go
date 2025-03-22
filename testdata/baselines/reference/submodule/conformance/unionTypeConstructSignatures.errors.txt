@@ -53,7 +53,6 @@ unionTypeConstructSignatures.ts(73,1): error TS2511: Cannot create an instance o
 !!! error TS2769: No overload matches this call.
 !!! error TS2769:   The last overload gave the following error.
 !!! error TS2769:     Argument of type 'boolean' is not assignable to parameter of type 'string'.
-!!! related TS2771 unionTypeConstructSignatures.ts:12:61: The last overload is declared here.
     
     var unionOfDifferentReturnType1: { new (a: number): number; new (a: string): string; } | { new (a: number): Date; new (a: string): boolean; };
     numOrDate = new unionOfDifferentReturnType1(10);
@@ -63,7 +62,6 @@ unionTypeConstructSignatures.ts(73,1): error TS2511: Cannot create an instance o
 !!! error TS2769: No overload matches this call.
 !!! error TS2769:   The last overload gave the following error.
 !!! error TS2769:     Argument of type 'boolean' is not assignable to parameter of type 'string'.
-!!! related TS2771 unionTypeConstructSignatures.ts:12:61: The last overload is declared here.
     new unionOfDifferentReturnType1(); // error missing parameter
     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 !!! error TS2554: Expected 1 arguments, but got 0.

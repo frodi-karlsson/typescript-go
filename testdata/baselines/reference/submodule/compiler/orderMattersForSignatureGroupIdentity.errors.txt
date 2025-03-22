@@ -33,7 +33,6 @@ orderMattersForSignatureGroupIdentity.ts(24,20): error TS2339: Property 'toLower
 !!! error TS2769: No overload matches this call.
 !!! error TS2769:   The last overload gave the following error.
 !!! error TS2769:     Object literal may only specify known properties, and 's' does not exist in type '{ n: number; }'.
-!!! related TS2771 orderMattersForSignatureGroupIdentity.ts:3:5: The last overload is declared here.
                        ~~~~~~~~~~~
 !!! error TS2339: Property 'toLowerCase' does not exist on type 'never'.
     
@@ -48,6 +47,5 @@ orderMattersForSignatureGroupIdentity.ts(24,20): error TS2339: Property 'toLower
 !!! error TS2769: No overload matches this call.
 !!! error TS2769:   The last overload gave the following error.
 !!! error TS2769:     Object literal may only specify known properties, and 's' does not exist in type '{ n: number; }'.
-!!! related TS2771 orderMattersForSignatureGroupIdentity.ts:3:5: The last overload is declared here.
                        ~~~~~~~~~~~
 !!! error TS2339: Property 'toLowerCase' does not exist on type 'never'.

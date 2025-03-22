@@ -31,4 +31,3 @@ iteratorSpreadInArray6.ts(15,14): error TS2769: No overload matches this call.
 !!! error TS2769:         The types returned by 'slice(...)' are incompatible between these types.
 !!! error TS2769:           Type 'symbol[]' is not assignable to type 'number[]'.
 !!! error TS2769:             Type 'symbol' is not assignable to type 'number'.
-!!! related TS2771 lib.es5.d.ts:--:--: The last overload is declared here.

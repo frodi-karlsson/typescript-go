@@ -31,11 +31,8 @@
 +!!! error TS2769:   The last overload gave the following error.
  !!! error TS2769:     Argument of type 'string | number' is not assignable to parameter of type 'number'.
  !!! error TS2769:       Type 'string' is not assignable to type 'number'.
-+!!! related TS2771 controlFlowIterationErrors.ts:28:18: The last overload is declared here.
              x;
-         }
-         x;
-@@= skipped -19, +17 lines =@@
+@@= skipped -19, +16 lines =@@
              x = foo(x);
                      ~
  !!! error TS2769: No overload matches this call.
@@ -46,7 +43,4 @@
 +!!! error TS2769:   The last overload gave the following error.
  !!! error TS2769:     Argument of type 'string | number' is not assignable to parameter of type 'number'.
  !!! error TS2769:       Type 'string' is not assignable to type 'number'.
-+!!! related TS2771 controlFlowIterationErrors.ts:28:18: The last overload is declared here.
          }
-         x;
-     }
